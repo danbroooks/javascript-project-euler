@@ -1,15 +1,10 @@
 'use strict'
 
-let memoize = require('./util/memoize')
 let add = require('./util/add')
 
+let fib = require('./util/fibonacci')
+
 const FOUR_MILLION = 4000000
-
-let fib = memoize((n) => {
-  if (n < 2) return 1
-
-  return fib(n - 1) + fib(n - 2)
-})
 
 let even = n => n % 2 === 0
 
