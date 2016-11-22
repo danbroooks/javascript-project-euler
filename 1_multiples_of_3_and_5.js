@@ -8,5 +8,7 @@ let sum = (a, b) => a + b
 
 let result = range(1000).filter(i => i % 3 === 0 || i % 5 === 0).reduce(sum, 0)
 
-console.log(result)
+let expect = 233168
+
+module.exports = { result, expect }
 
