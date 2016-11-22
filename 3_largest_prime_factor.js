@@ -4,23 +4,21 @@ const NUMBER = 600851475143
 
 let range = require('./util/range')
 let isPrime = require('./util/isPrime')
+let head = require('./util/headtail').head
 
-let largestPrimeFactor = (n) => {
+let divisors = (of) => {
+  let d = []
   let i = 2
-  var current
-
-  while (i < NUMBER / i) {
-    if (NUMBER % i === 0 && isPrime(i)) {
-      current = i
-    }
-
+  while (i < of / i) {
+    if (of % i === 0) d.push(i)
     i = i + 1
   }
-
-  return current
+  return d
 }
 
-let result = largestPrimeFactor(NUMBER)
+let primeFactors = divisors(NUMBER).filter(isPrime)
+
+let result = head(primeFactors.reverse())
 
 let expect = 6857
 
