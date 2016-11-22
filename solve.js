@@ -1,7 +1,8 @@
 'use strict'
 
 let problems = [
-  './1_multiples_of_3_and_5'
+  './1_multiples_of_3_and_5',
+  './2_even_fibonacci_numbers'
 ]
 
 problems.forEach((file) => {
