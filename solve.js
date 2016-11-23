@@ -3,7 +3,8 @@
 let problems = [
   './1_multiples_of_3_and_5',
   './2_even_fibonacci_numbers',
-  './3_largest_prime_factor'
+  './3_largest_prime_factor',
+  './4_largest_palindrome_product',
 ]
 
 problems.forEach((file) => {
