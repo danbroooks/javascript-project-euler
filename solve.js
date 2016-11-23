@@ -1,5 +1,7 @@
 'use strict'
 
+let opt = process.argv[2]
+
 let problems = [
   './1_multiples_of_3_and_5',
   './2_even_fibonacci_numbers',
@@ -8,7 +10,11 @@ let problems = [
   './5_smallest_multiple',
 ]
 
-problems.forEach((file) => {
+if (opt) {
+  problems = problems.filter((file, i) => '' + (i + 1) === opt)
+}
+
+problems.forEach((file, i) => {
   let _ = require(file)
 
   if (_.result !== _.expect) {
