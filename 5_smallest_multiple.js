@@ -1,42 +1,32 @@
 'use strict'
 
 let range = require('./util/range')
+let isPrime = require('./util/isPrime')
 let memoize = require('./util/memoize')
 
-let increment = i => i + 1
-
 let smallestMultiple = memoize((power) => {
-  if (power == 1) {
-    return power
+  if (power < 2) {
+    return 1
   }
 
-  let numbers = range(power).map(increment)
-
-  let i = smallestMultiple(power - 1)
-
+  let i = Math.floor(smallestMultiple(power - 1) / power) * power
+  let numbers = range(power).map(n => n + 1)
   let smallest = undefined
 
   while (!smallest) {
-
-    if (i % power === 0) {
-
-      // console.log(i)
-
-      let multiple = numbers.reduce((carry, num) => {
-        if (carry) {
-          return i % num === 0
-        }
-
-        return carry
-      }, true)
-
-      if (multiple) {
-        // console.log(`${n}: ${multiple}`)
-        smallest = i
+    let multiple = numbers.reduce((carry, num) => {
+      if (carry) {
+        return i % num === 0
       }
+
+      return carry
+    }, true)
+
+    if (multiple) {
+      smallest = i
     }
 
-    i = i + 1
+    i = i + power
   }
 
   return smallest

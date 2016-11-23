@@ -3,23 +3,11 @@
 const NUMBER = 600851475143
 
 let range = require('./util/range')
-let isPrime = require('./util/isPrime')
 let head = require('./util/headtail').head
 let reverse = require('./util/reverse')
+let primeFactors = require('./util/primeFactors')
 
-let divisors = (of) => {
-  let d = []
-  let i = 2
-  while (i < of / i) {
-    if (of % i === 0) d.push(i)
-    i = i + 1
-  }
-  return d
-}
-
-let primeFactors = divisors(NUMBER).filter(isPrime)
-
-let result = head(reverse(primeFactors))
+let result = head(reverse(primeFactors(NUMBER)))
 
 let expect = 6857
 
