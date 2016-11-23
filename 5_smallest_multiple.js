@@ -9,8 +9,9 @@ let smallestMultiple = memoize((power) => {
     return 1
   }
 
-  let i = Math.floor(smallestMultiple(power - 1) / power) * power
   let numbers = range(power).map(n => n + 1)
+  let inc = numbers.filter(isPrime).reduce((a, b) => a * b)
+  let i = Math.floor(smallestMultiple(power - 1) / inc) * inc
   let smallest = undefined
 
   while (!smallest) {
@@ -26,7 +27,7 @@ let smallestMultiple = memoize((power) => {
       smallest = i
     }
 
-    i = i + power
+    i = i + inc
   }
 
   return smallest
