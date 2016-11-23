@@ -5,6 +5,7 @@ let problems = [
   './2_even_fibonacci_numbers',
   './3_largest_prime_factor',
   './4_largest_palindrome_product',
+  './5_smallest_multiple',
 ]
 
 problems.forEach((file) => {
