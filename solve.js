@@ -10,6 +10,7 @@ let problems = [
   './3_largest_prime_factor',
   './4_largest_palindrome_product',
   './5_smallest_multiple',
+  './6_sum_square_difference',
 ]
 
 if (opt) {
