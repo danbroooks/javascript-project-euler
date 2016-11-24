@@ -11,6 +11,7 @@ let problems = [
   './4_largest_palindrome_product',
   './5_smallest_multiple',
   './6_sum_square_difference',
+  './7_10001st_prime',
 ]
 
 if (opt) {
