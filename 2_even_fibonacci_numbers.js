@@ -3,10 +3,9 @@
 let add = require('./util/add')
 let fib = require('./util/fibonacci')
 let head = require('./util/headtail').head
+let even = require('./util/oddeven').even
 
 const FOUR_MILLION = 4000000
-
-let even = n => n % 2 === 0
 
 let fibSeq = [fib(0)]
 
