@@ -1,22 +1,38 @@
 'use strict'
 
 let isPrime = require('./util/isPrime')
-let reverse = require('./util/reverse')
-let head = require('./util/headtail').head
+let memoize = require('./util/memoize')
+let odd = require('./util/oddeven').odd
 
-let primes = []
-let i = 2
+let chunk = 500 // javascript stack size limit
 
-while (primes.length < 10001) {
-  if (isPrime(i)) {
-    primes.push(i)
+let max = 2
+
+let nthPrime = memoize((n) => {
+  if (n == 1 || n == 2) {
+    return n + 1
   }
 
-  i = i + 1
-}
+  // heat up memoize cache due to tail call limitations
+  if (n > max) {
+    max = max + chunk
+    nthPrime(max)
+  }
 
-let result = head(reverse(primes))
+  let last = nthPrime(n - 1)
+  let i = last + (odd(last) ? 2 : 1)
 
+  while (i) {
+    if (isPrime(i)) {
+      max = n
+      return i
+    }
+
+    i = i + 2
+  }
+})
+
+let result = nthPrime(10001)
 let expect = 104743
 
 module.exports = { expect, result }
