@@ -12,6 +12,7 @@ let problems = [
   './5_smallest_multiple',
   './6_sum_square_difference',
   './7_10001st_prime',
+  './8_largest_product_in_series',
 ]
 
 if (opt) {

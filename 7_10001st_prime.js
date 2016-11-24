@@ -13,8 +13,8 @@ let nthPrime = memoize((n) => {
     return n + 1
   }
 
-  // heat up memoize cache due to tail call limitations
-  if (n > max) {
+  // chunk heating up the memoize cache, due to tail call limitations
+  if (n > max + chunk) {
     max = max + chunk
     nthPrime(max)
   }
