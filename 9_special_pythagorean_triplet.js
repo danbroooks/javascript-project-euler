@@ -1,33 +1,44 @@
 'use strict'
 
+let head = require('./util/headtail').head
+
 let product = (values) => values.reduce((x, y) => x * y, 1)
 
 let sqr = n => n * n
 
 let isTriplet = (a, b, c) => sqr(a) + sqr(b) === sqr(c)
 
-let findTriplet = (a, b, c) => {
+let solve = n => {
+  let findTriplet = (a, b, c) => {
+    let ts = []
 
-  while (a < b < c) {
-    if (isTriplet(a, b, c) && (a + b + c) === 1000) return [a, b, c]
+    while (a > 0 && b > 0 && c > 0) {
+      if ((a + b + c) === n && isTriplet(a, b, c)) ts.push([a, b, c])
 
-    a = a + 1
+      a = a - 1
 
-    if (a >= b) {
-      b = b + 1
-      a = 1
+      if (a <= 0) {
+        a = b
+        b = b - 1
+      }
+
+      if (b <= 0) {
+        b = c
+        c = c - 1
+      }
     }
 
-    if (b >= c) {
-      c = c + 1
-      b = 1
-    }
+    return ts
   }
+
+  return findTriplet(
+    Math.ceil(n / 3),
+    Math.ceil(n / 2),
+    Math.ceil((n / 3) * 2)
+  )
 }
 
-let t = findTriplet(1, 2, 3)
-
-let result = product(t)
+let result = product(head(solve(1000)))
 
 let expect = 31875000
 
