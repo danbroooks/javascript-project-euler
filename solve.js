@@ -13,6 +13,7 @@ let problems = [
   './6_sum_square_difference',
   './7_10001st_prime',
   './8_largest_product_in_series',
+  './9_special_pythagorean_triplet'
 ]
 
 if (opt) {
