@@ -1,10 +1,10 @@
 'use strict'
 
-let range = require('./util/range')
-let isPrime = require('./util/isPrime')
-let memoize = require('./util/memoize')
+let range = require('./range')
+let isPrime = require('./isPrime')
+let memoize = require('./memoize')
 
-let smallestMultiple = memoize((power) => {
+let smallestMultiple = memoize(power => {
   if (power < 2) {
     return 1
   }
@@ -33,9 +33,4 @@ let smallestMultiple = memoize((power) => {
   return smallest
 })
 
-let result = smallestMultiple(20)
-
-let expect = 232792560
-
-module.exports = { expect, result }
-
+module.exports = smallestMultiple

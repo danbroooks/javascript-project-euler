@@ -1,8 +1,7 @@
-'use strict'
 
-let isPrime = require('./util/isPrime')
-let memoize = require('./util/memoize')
-let odd = require('./util/oddeven').odd
+let isPrime = require('./isPrime')
+let memoize = require('./memoize')
+let odd = require('./oddeven').odd
 
 let chunk = 500 // javascript stack size limit
 
@@ -32,7 +31,4 @@ let nthPrime = memoize((n) => {
   }
 })
 
-let result = nthPrime(10001)
-let expect = 104743
-
-module.exports = { expect, result }
+module.exports = nthPrime

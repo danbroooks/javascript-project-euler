@@ -1,5 +1,6 @@
+'use strict'
 
-module.exports = {
-  even: n => n % 2 === 0,
-  odd: n => n % 2 !== 0
-}
+let odd = n => n % 2 !== 0
+let even = n => n % 2 === 0
+
+module.exports = { odd, even }

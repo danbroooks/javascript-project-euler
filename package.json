@@ -1,0 +1,22 @@
+{
+  "name": "javascript-project-euler",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "ava test/**"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danbroooks/javascript-project-euler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danbroooks/javascript-project-euler/issues"
+  },
+  "homepage": "https://github.com/danbroooks/javascript-project-euler#readme",
+  "dependencies": {
+    "ava": "^0.17.0"
+  }
+}
