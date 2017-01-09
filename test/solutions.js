@@ -2,12 +2,18 @@
 
 const { test } = require('ava')
 
+let benchmark = (t, ms) => {
+  let duration = Date.now() - t._test._timeStart
+  t.true(duration < ms)
+}
+
 test('multiples of three and five', t => {
   let range = require('../util/range')
   let add = require('../util/add')
   let result = range(1000).filter(i => i % 3 === 0 || i % 5 === 0).reduce(add, 0)
 
   t.is(result, 233168)
+  benchmark(t, 50)
 })
 
 test('even fibonacci numbers', t => {
@@ -27,6 +33,7 @@ test('even fibonacci numbers', t => {
   let result = fibSeq.filter(even).reduce(add, 0)
 
   t.is(result, 4613732)
+  benchmark(t, 50)
 })
 
 test('largest prime factor', t => {
@@ -40,6 +47,7 @@ test('largest prime factor', t => {
   let result = head(reverse(primeFactors(NUMBER)))
 
   t.is(result, 6857)
+  benchmark(t, 50)
 })
 
 test('largest palindrome product', t => {
@@ -58,6 +66,7 @@ test('largest palindrome product', t => {
   }
 
   t.is(result, 906609)
+  benchmark(t, 100)
 })
 
 test('smallest multiple', t => {
@@ -65,6 +74,7 @@ test('smallest multiple', t => {
   let result = smallestMultiple(20)
 
   t.is(result, 232792560)
+  benchmark(t, 50)
 })
 
 test('sum square difference', t => {
@@ -74,6 +84,7 @@ test('sum square difference', t => {
   let result = sumSquareDiff(100)
 
   t.is(result, 25164150)
+  benchmark(t, 50)
 })
 
 test('10001st prime', t => {
@@ -81,6 +92,7 @@ test('10001st prime', t => {
   let result = nthPrime(10001)
 
   t.is(result, 104743)
+  benchmark(t, 600)
 })
 
 test('largest product in series', t => {
@@ -118,6 +130,7 @@ test('largest product in series', t => {
   }
 
   t.is(largestProductInSeries(bigInt), 23514624000)
+  benchmark(t, 50)
 })
 
 test('special pythagorean triplet', t => {
@@ -160,5 +173,6 @@ test('special pythagorean triplet', t => {
   let result = product(head(solve(1000)))
 
   t.is(result, 31875000)
+  benchmark(t, 250)
 })
 
